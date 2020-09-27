@@ -1,23 +1,20 @@
-package main
+package server
 
 import (
 	"net/http"
 )
 
 type Server struct {
-	port   string
-	router *Router
+	port string
 }
 
 func serverApp(port string) *Server {
 	return &Server{
-		port:   port,
-		router: RunRouter(),
+		port: port,
 	}
 }
 
 func (s *Server) Listen() error {
-	http.Handle("/", s.router)
 	err := http.ListenAndServe(s.port, nil)
 	if err != nil {
 		return err

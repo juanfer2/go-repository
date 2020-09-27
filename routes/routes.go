@@ -1,4 +1,4 @@
-package main
+package routes
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 )
 
 type Router struct{
-	rules: map[string]http.HandlerFunc
+	rules: map[string]http.HandlerFunc,
 }
 
 func CreateRouter() *Router  {
